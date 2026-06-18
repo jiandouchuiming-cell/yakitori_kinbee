@@ -7,16 +7,18 @@
 <meta name="description" content="豪徳寺の小さな焼き鳥店、金兵衛。備長炭でじっくり焼き上げる焼き鳥と、ワインのペアリングを楽しめるカウンター16席。10品5,000円・15品7,000円のコースをご用意しています。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Yuji+Mai&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Yuji+Mai&family=Yuji+Syuku&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="notice-bar">
-  この画面は LP デザイン提案用のモックアップです。写真はイメージであり実際の提供メニューと異なります。営業時間・定休日・料金等は店舗確認後に正式版へ差し替えます。
+  <span class="notice-full">この画面は LP デザイン提案用のモックアップです。写真はイメージであり実際の提供メニューと異なります。営業時間・定休日・料金等は店舗確認後に正式版へ差し替えます。</span>
+  <span class="notice-short">※LPデザイン提案用のモックアップです（写真はイメージ／料金等は要確認）。</span>
 </div>
 
 <header class="site-header">
+  <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
   <a href="#top" class="logo">
     <img src="assets/logo/kinbei-logo-horizontal.png" alt="焼き鳥 金兵衛">
   </a>
@@ -27,7 +29,12 @@
     <a href="#counter">店内</a>
     <a href="#reservation">ご予約</a>
   </nav>
-  <a href="#reservation" class="btn btn-primary btn-small">ご予約</a>
+  <div class="header-actions">
+    <a href="#reservation" class="btn btn-primary btn-small">ご予約</a>
+    <label for="nav-toggle" class="nav-toggle" aria-label="メニューを開く">
+      <span></span><span></span><span></span>
+    </label>
+  </div>
 </header>
 
 <main id="top">
@@ -54,18 +61,18 @@
   </section>
 
   <!-- CONCEPT -->
-  <section id="concept" class="section section-light">
-    <div class="section-inner split">
-      <div class="split-text">
+  <section id="concept" class="concept-section">
+    <div class="concept-grid">
+      <div class="concept-text">
         <p class="eyebrow eyebrow-dark">CONCEPT</p>
         <h2>素材と火入れに向き合い、<br>ワインがすすむ一串を。</h2>
         <p class="body-text">
           備長炭でじっくり焼き上げた焼き鳥と、季節の食材を使った一品料理。
           ワインとのペアリングを楽しみながら、心地よい時間をお過ごしください。
         </p>
-        <a href="#course" class="link-arrow">コースを見る →</a>
+        <a href="#course" class="btn btn-primary concept-link">コンセプト詳細へ <span>→</span></a>
       </div>
-      <div class="split-image">
+      <div class="concept-image">
         <img src="assets/food/chicken-skewer-yuzukosho-red-wine.png" alt="柚子胡椒の焼き鳥串とワイン" loading="lazy">
       </div>
     </div>
@@ -124,13 +131,17 @@
         </div>
       </div>
 
-      <div class="photo-grid">
-        <img src="assets/food/salmon-skewer-cream-dill.png" alt="サーモンの串焼き" loading="lazy">
-        <img src="assets/food/sliced-pork-fig-sauce.png" alt="豚肉の薄切りとフィグソース" loading="lazy">
-        <img src="assets/food/grilled-pork-loin-citrus-sauce.png" alt="豚ロースの炭火焼きと柑橘ソース" loading="lazy">
-        <img src="assets/food/pork-belly-skewer-peanut-glaze.png" alt="豚バラ串のピーナッツ衣" loading="lazy">
-        <img src="assets/food/chicken-liver-skewer.png" alt="鶏レバーの串焼き" loading="lazy">
-        <img src="assets/food/beet-skewers-cream-dip.png" alt="ビーツの串焼きとクリームディップ" loading="lazy">
+      <div class="photo-carousel">
+        <div class="photo-grid">
+          <img src="assets/food/salmon-skewer-cream-dill.png" alt="サーモンの串焼き" loading="lazy">
+          <img src="assets/food/sliced-pork-fig-sauce.png" alt="豚肉の薄切りとフィグソース" loading="lazy">
+          <img src="assets/food/grilled-pork-loin-citrus-sauce.png" alt="豚ロースの炭火焼きと柑橘ソース" loading="lazy">
+          <img src="assets/food/pork-belly-skewer-peanut-glaze.png" alt="豚バラ串のピーナッツ衣" loading="lazy">
+          <img src="assets/food/chicken-liver-skewer.png" alt="鶏レバーの串焼き" loading="lazy">
+          <img src="assets/food/beet-skewers-cream-dip.png" alt="ビーツの串焼きとクリームディップ" loading="lazy">
+        </div>
+        <button type="button" class="photo-nav photo-nav-prev" aria-label="前の写真へ">‹</button>
+        <button type="button" class="photo-nav photo-nav-next" aria-label="次の写真へ">›</button>
       </div>
       <div class="center-text">
         <a href="#reservation" class="btn btn-primary">コース詳細・ご予約へ →</a>
@@ -139,13 +150,13 @@
   </section>
 
   <!-- PAIRING -->
-  <section id="pairing" class="section section-split-image">
-    <div class="section-inner split reverse">
-      <div class="split-image">
+  <section id="pairing" class="pairing-section section-dark">
+    <div class="pairing-grid">
+      <div class="pairing-image">
         <img src="assets/food/chicken-skewer-yuzukosho-white-wine.png" alt="焼き鳥と白ワイン" loading="lazy">
       </div>
-      <div class="split-text">
-        <p class="eyebrow eyebrow-dark">PAIRING</p>
+      <div class="pairing-text">
+        <p class="eyebrow">PAIRING</p>
         <h2>焼き鳥 × ワインの魅力</h2>
         <p class="body-text">
           繊細な火入れと素材の旨み。それを引き立てる、ナチュラルワインや
@@ -193,10 +204,10 @@
   </section>
 
   <!-- RESERVATION + ACCESS -->
-  <section id="reservation" class="section section-light">
+  <section id="reservation" class="section section-dark">
     <div class="section-inner reserve-grid">
       <div>
-        <p class="eyebrow eyebrow-dark">RESERVATION</p>
+        <p class="eyebrow">RESERVATION</p>
         <h2>ご予約について</h2>
         <p class="body-text">カウンター席のみのご案内です。ご予約はWEBまたはお電話からどうぞ。</p>
         <div class="cta-group">
@@ -204,8 +215,9 @@
           <a href="tel:00000000000" class="btn btn-outline">電話する</a>
           <a href="https://www.instagram.com/kinbe.yakitori/" class="btn btn-outline" target="_blank" rel="noopener">Instagram</a>
         </div>
+        <img class="reserve-image" src="assets/scene/yakitori-counter-skewers-wine.png" alt="カウンターの串焼きとワイン">
       </div>
-      <div>
+      <div class="access-panel">
         <p class="eyebrow eyebrow-dark">ACCESS</p>
         <h2>店舗情報</h2>
         <table class="info-table">
@@ -229,9 +241,10 @@
   </section>
 
   <!-- FAQ -->
-  <section class="section section-light">
+  <section id="faq" class="section section-dark-image" style="background-image:url('assets/scene/yakitori-charcoal-grilling-hand.png');">
+    <div class="section-overlay"></div>
     <div class="section-inner narrow">
-      <p class="eyebrow eyebrow-dark">FAQ</p>
+      <p class="eyebrow">FAQ</p>
       <h2>よくあるご質問</h2>
       <details class="faq-item">
         <summary>キャンセルポリシーについて教えてください</summary>
@@ -269,6 +282,30 @@
   <a href="#reservation" class="btn btn-primary">予約する</a>
   <a href="tel:00000000000" class="btn btn-outline">電話する</a>
 </div>
+
+<script>
+  const footerEl = document.querySelector(".final-cta");
+  const stickyCta = document.querySelector(".mobile-sticky-cta");
+  const footerObserver = new IntersectionObserver(
+    (entries) => {
+      stickyCta.classList.toggle("is-hidden", entries[0].isIntersecting);
+    },
+    { threshold: 0.1 }
+  );
+  footerObserver.observe(footerEl);
+
+  document.querySelectorAll(".photo-carousel").forEach((carousel) => {
+    const track = carousel.querySelector(".photo-grid");
+    const prevBtn = carousel.querySelector(".photo-nav-prev");
+    const nextBtn = carousel.querySelector(".photo-nav-next");
+    prevBtn.addEventListener("click", () => {
+      track.scrollBy({ left: -track.clientWidth, behavior: "smooth" });
+    });
+    nextBtn.addEventListener("click", () => {
+      track.scrollBy({ left: track.clientWidth, behavior: "smooth" });
+    });
+  });
+</script>
 
 </body>
 </html>
