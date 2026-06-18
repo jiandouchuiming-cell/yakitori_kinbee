@@ -1,0 +1,266 @@
+:root{
+  --charcoal: #15110f;
+  --charcoal-2: #1d1714;
+  --cream: #f6efe2;
+  --cream-2: #efe6d4;
+  --ink: #2a2420;
+  --ink-soft: #5a5048;
+  --wine: #6e1f2b;
+  --wine-deep: #4f1620;
+  --gold: #b08d57;
+  --line: #e3d8c0;
+  --radius: 4px;
+  --shadow: 0 18px 40px -22px rgba(0,0,0,.55);
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:"Noto Sans JP",sans-serif;
+  color:var(--ink);
+  background:var(--cream);
+  padding-bottom:0;
+}
+h1,h2,h3{
+  font-family:"Noto Serif JP",serif;
+  margin:0 0 .5em;
+  line-height:1.4;
+}
+p{margin:0 0 1em;line-height:1.9;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+
+/* notice bar */
+.notice-bar{
+  background:#3a2e22;
+  color:#e9ddc6;
+  font-size:.72rem;
+  text-align:center;
+  padding:.5em 1em;
+  letter-spacing:.02em;
+}
+
+/* header */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.8em 1.5em;
+  background:rgba(21,17,15,.92);
+  backdrop-filter:blur(6px);
+  color:#f1e9d8;
+}
+.logo{display:flex;align-items:center;}
+.logo img{height:38px;width:auto;}
+.footer-logo .logo-main{font-family:"Noto Serif JP",serif;font-size:1.1rem;font-weight:700;}
+.site-nav{display:none;gap:1.8em;font-size:.85rem;}
+@media(min-width:860px){.site-nav{display:flex;}}
+.site-nav a:hover{color:var(--gold);}
+
+/* buttons */
+.btn{
+  display:inline-block;
+  padding:.85em 1.8em;
+  border-radius:var(--radius);
+  font-size:.9rem;
+  letter-spacing:.04em;
+  border:1px solid transparent;
+  transition:opacity .2s;
+}
+.btn:hover{opacity:.85;}
+.btn-primary{background:var(--wine);color:#fff;}
+.btn-outline{border-color:rgba(255,255,255,.5);color:inherit;}
+.section-light .btn-outline{border-color:var(--wine);color:var(--wine);}
+.btn-small{padding:.5em 1.2em;font-size:.8rem;}
+.cta-group{display:flex;gap:.8em;flex-wrap:wrap;margin-top:1.5em;}
+
+/* eyebrow */
+.eyebrow{
+  font-size:.72rem;letter-spacing:.25em;color:var(--gold);
+  margin-bottom:.8em;font-weight:700;
+}
+.eyebrow-dark{color:var(--wine);}
+.center,.center-text{text-align:center;}
+
+/* hero */
+.hero{
+  position:relative;min-height:62vh;
+  background-size:cover;background-position:center;
+  display:flex;flex-direction:column;align-items:flex-start;justify-content:center;
+  gap:2em;
+  color:#fff;
+  padding:2em 1.5em;
+}
+@media(min-width:760px){
+  .hero{flex-direction:row;align-items:center;justify-content:center;}
+}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(100deg, rgba(10,8,6,.88) 10%, rgba(10,8,6,.45) 55%, rgba(10,8,6,.15) 100%);
+}
+.hero-logo{
+  position:absolute;top:1.6em;left:1.5em;z-index:3;
+  height:64px;width:auto;
+}
+@media(min-width:760px){
+  .hero-logo{left:2.2em;height:80px;}
+}
+@media(max-width:759px){
+  .hero-content{margin-top:80px;}
+}
+.hero-content{position:relative;max-width:640px;}
+.hero-title-vertical{
+  writing-mode:vertical-rl;
+  text-orientation:mixed;
+  font-family:"Yuji Mai","Noto Serif JP",serif;
+  font-weight:400;
+  font-size:2.1rem;
+  height:14em;
+  line-height:1.7;
+  letter-spacing:.2em;
+  margin:0;
+}
+.hero-bottom{
+  position:static;
+  max-width:380px;
+  z-index:2;
+}
+@media(min-width:760px){
+  .hero-bottom{position:absolute;left:6vw;bottom:2.2em;}
+}
+@media(max-width:759px){
+  .hero{background-image:url('assets/scene/yakitori-grill-portrait-red-wine.png') !important;}
+}
+@media(min-width:760px){
+  .hero-title-vertical{font-size:2.9rem;}
+}
+.hero-lead{font-size:.95rem;color:#e7ddc9;}
+
+/* sections */
+.section{padding:5em 1.5em;}
+.section-inner{max-width:1080px;margin:0 auto;}
+.section-inner.narrow{max-width:680px;}
+.section-light{background:var(--cream);}
+.section-dark{background:var(--charcoal);color:#ece3d2;}
+.section-dark h2{color:#fff;}
+.section-dark .body-text{color:#c9bda3;}
+
+.split{display:grid;gap:2.5em;align-items:center;}
+@media(min-width:860px){
+  .split{grid-template-columns:1fr 1fr;}
+  .split.reverse .split-image{order:2;}
+}
+.split-image img{width:100%;border-radius:var(--radius);box-shadow:var(--shadow);}
+.body-text{color:var(--ink-soft);max-width:520px;}
+.link-arrow{color:var(--wine);font-weight:700;font-size:.9rem;}
+
+/* reason grid */
+.reason-grid{
+  display:grid;gap:1.5em;margin-top:2.5em;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+}
+.reason-card{
+  background:var(--charcoal-2);padding:1.8em 1.5em;border-radius:var(--radius);
+  border:1px solid rgba(176,141,87,.25);
+}
+.reason-num{color:var(--gold);font-family:"Noto Serif JP",serif;font-size:1.2rem;margin:0 0 .4em;}
+.reason-card h3{font-size:1rem;color:#fff;}
+.reason-card p{font-size:.85rem;color:#bdb29a;margin:0;}
+
+/* course */
+.course-compare{
+  display:grid;gap:1.5em;margin:2.5em 0;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  max-width:760px;margin-inline:auto;
+}
+.course-card{
+  position:relative;background:#fff;border:1px solid var(--line);
+  border-radius:var(--radius);padding:2em 1.6em;text-align:center;
+}
+.course-card-featured{border-color:var(--wine);box-shadow:var(--shadow);}
+.course-badge{
+  position:absolute;top:-12px;right:18px;background:var(--wine);color:#fff;
+  font-size:.7rem;padding:.3em .8em;border-radius:99px;
+}
+.course-name{font-weight:700;letter-spacing:.05em;margin-bottom:.6em;}
+.course-price{font-family:"Noto Serif JP",serif;font-size:1.8rem;color:var(--wine);margin-bottom:.4em;}
+.course-price span{font-size:.7rem;color:var(--ink-soft);}
+.course-detail{font-size:.85rem;color:var(--ink-soft);margin-bottom:.4em;}
+.course-note{font-size:.72rem;color:#a89c84;margin:0;}
+
+.photo-grid{
+  display:grid;gap:.8em;margin:2.5em 0;
+  grid-template-columns:repeat(3,1fr);
+}
+.photo-grid img{width:100%;height:100%;aspect-ratio:1/1;object-fit:cover;border-radius:var(--radius);}
+@media(max-width:600px){.photo-grid{grid-template-columns:repeat(2,1fr);}}
+
+/* scene */
+.scene-grid{
+  display:grid;gap:1.5em;margin-top:2.5em;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+}
+.scene-card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:1.8em;text-align:center;
+}
+.scene-card h3{font-size:1rem;color:var(--wine);}
+.scene-card p{font-size:.85rem;color:var(--ink-soft);margin:0;}
+
+/* dark image section */
+.section-dark-image{
+  position:relative;background-size:cover;background-position:center;color:#fff;
+}
+.section-overlay{position:absolute;inset:0;background:rgba(10,8,6,.6);}
+.section-dark-image .section-inner{position:relative;max-width:640px;}
+.section-dark-image .body-text{color:#e2d8c2;}
+
+/* reservation */
+.reserve-grid{
+  display:grid;gap:3em;
+  grid-template-columns:1fr;
+}
+@media(min-width:860px){.reserve-grid{grid-template-columns:1.1fr 1fr;}}
+.info-table{width:100%;border-collapse:collapse;margin:1.5em 0;font-size:.88rem;}
+.info-table th,.info-table td{text-align:left;padding:.7em 0;border-bottom:1px solid var(--line);}
+.info-table th{width:30%;color:var(--ink-soft);font-weight:500;}
+.map-embed{
+  border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+}
+.map-embed iframe{
+  width:100%;height:240px;border:0;display:block;
+}
+.map-link{margin-top:.6em;font-size:.85rem;}
+.map-link a{color:var(--wine);font-weight:700;}
+
+/* faq */
+.faq-item{
+  border-bottom:1px solid var(--line);padding:1.1em 0;
+}
+.faq-item summary{cursor:pointer;font-weight:500;}
+.faq-item p{margin-top:.8em;color:var(--ink-soft);font-size:.9rem;}
+
+/* final cta footer */
+.final-cta{
+  background:var(--wine-deep);color:#fff;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.4em 1.8em;flex-wrap:wrap;gap:1em;
+}
+.final-cta-link{display:flex;flex-direction:column;gap:.2em;font-weight:700;}
+.final-cta-link small{font-weight:400;font-size:.75rem;color:#e2c9ce;}
+.footer-logo{font-family:"Noto Serif JP",serif;font-size:.9rem;text-align:right;}
+.footer-logo .logo-sub{display:block;font-size:.6rem;color:var(--gold);letter-spacing:.2em;}
+
+/* mobile sticky cta */
+.mobile-sticky-cta{
+  display:none;
+  position:fixed;left:0;right:0;bottom:0;z-index:60;
+  background:#fff;border-top:1px solid var(--line);
+  padding:.7em 1em;gap:.6em;
+  box-shadow:0 -8px 20px -12px rgba(0,0,0,.3);
+}
+@media(max-width:760px){
+  .mobile-sticky-cta{display:flex;}
+  body{padding-bottom:64px;}
+  .mobile-sticky-cta .btn{flex:1;text-align:center;padding:.75em .5em;font-size:.82rem;}
+}
