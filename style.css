@@ -56,8 +56,7 @@ img{max-width:100%;display:block;}
   position:sticky;top:0;z-index:50;
   display:flex;align-items:center;justify-content:space-between;
   padding:.8em 1.5em;
-  background:rgba(21,17,15,.92);
-  backdrop-filter:blur(6px);
+  background:#26231f;
   color:#f1e9d8;
 }
 .logo{display:flex;align-items:center;}
