@@ -296,25 +296,6 @@
     { threshold: 0.1 }
   );
   footerObserver.observe(footerEl);
-  document.querySelectorAll(".photo-carousel").forEach((carousel) => {
-    const track = carousel.querySelector(".photo-grid");
-    const prevBtn = carousel.querySelector(".photo-nav-prev");
-    const nextBtn = carousel.querySelector(".photo-nav-next");
-    prevBtn.addEventListener("click", () => {
-      if (track.scrollLeft <= 0) {
-        track.scrollTo({ left: track.scrollWidth, behavior: "auto" });
-      } else {
-        track.scrollBy({ left: -track.clientWidth, behavior: "smooth" });
-      }
-    });
-    nextBtn.addEventListener("click", () => {
-      if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 1) {
-        track.scrollTo({ left: 0, behavior: "auto" });
-      } else {
-        track.scrollBy({ left: track.clientWidth, behavior: "smooth" });
-      }
-    });
-  });
 </script>
 
 </body>
