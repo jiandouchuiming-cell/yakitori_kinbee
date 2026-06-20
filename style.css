@@ -418,6 +418,3 @@ img{max-width:100%;display:block;}
   .mobile-sticky-cta .btn{flex:1;text-align:center;padding:.75em .5em;font-size:.82rem;}
 }
 
-@media(min-width:601px){
-  .photo-grid .clone { display: none; }
-}

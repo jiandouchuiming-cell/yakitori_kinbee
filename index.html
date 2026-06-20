@@ -300,53 +300,19 @@
     const track = carousel.querySelector(".photo-grid");
     const prevBtn = carousel.querySelector(".photo-nav-prev");
     const nextBtn = carousel.querySelector(".photo-nav-next");
-    const images = Array.from(track.querySelectorAll("img"));
-    if (images.length === 0) return;
-
-    // 前後にクローン画像を追加
-    const firstClone = images[0].cloneNode(true);
-    const lastClone = images[images.length - 1].cloneNode(true);
-    firstClone.classList.add('clone');
-    lastClone.classList.add('clone');
-    track.appendChild(firstClone);
-    track.insertBefore(lastClone, track.firstChild);
-
-    // スマホ表示時の初期位置調整
-    if (window.innerWidth <= 600) {
-      setTimeout(() => {
-        const itemWidth = track.querySelector("img").clientWidth + parseFloat(getComputedStyle(track).gap || 0);
-        track.scrollTo({ left: itemWidth, behavior: "auto" });
-      }, 50);
-    }
-
-    let isScrolling = false;
-
-    // スクロールでダミー画像に到達した際にワープさせる
-    track.addEventListener("scroll", () => {
-      if (window.innerWidth > 600) return;
-      if (isScrolling) return;
-
-      const itemWidth = track.querySelector("img").clientWidth + parseFloat(getComputedStyle(track).gap || 0);
-      const maxScroll = track.scrollWidth - track.clientWidth;
-
-      if (track.scrollLeft <= 5) {
-        isScrolling = true;
-        track.scrollTo({ left: maxScroll - itemWidth, behavior: "auto" });
-        setTimeout(() => isScrolling = false, 50);
-      } else if (track.scrollLeft >= maxScroll - 5) {
-        isScrolling = true;
-        track.scrollTo({ left: itemWidth, behavior: "auto" });
-        setTimeout(() => isScrolling = false, 50);
+    prevBtn.addEventListener("click", () => {
+      if (track.scrollLeft <= 0) {
+        track.scrollTo({ left: track.scrollWidth, behavior: "auto" });
+      } else {
+        track.scrollBy({ left: -track.clientWidth, behavior: "smooth" });
       }
     });
-
-    prevBtn.addEventListener("click", () => {
-      const itemWidth = track.querySelector("img").clientWidth + parseFloat(getComputedStyle(track).gap || 0);
-      track.scrollBy({ left: -itemWidth, behavior: "smooth" });
-    });
     nextBtn.addEventListener("click", () => {
-      const itemWidth = track.querySelector("img").clientWidth + parseFloat(getComputedStyle(track).gap || 0);
-      track.scrollBy({ left: itemWidth, behavior: "smooth" });
+      if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 1) {
+        track.scrollTo({ left: 0, behavior: "auto" });
+      } else {
+        track.scrollBy({ left: track.clientWidth, behavior: "smooth" });
+      }
     });
   });
 </script>
