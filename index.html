@@ -141,8 +141,6 @@
           <img src="assets/food/chicken-liver-skewer.png" alt="鶏レバーの串焼き" loading="lazy">
           <img src="assets/food/beet-skewers-cream-dip.png" alt="ビーツの串焼きとクリームディップ" loading="lazy">
         </div>
-        <button type="button" class="photo-nav photo-nav-prev" aria-label="前の写真へ">‹</button>
-        <button type="button" class="photo-nav photo-nav-next" aria-label="次の写真へ">›</button>
       </div>
       <div class="center-text">
         <a href="#reservation" class="btn btn-primary">ご予約へ →</a>
@@ -298,24 +296,6 @@
     { threshold: 0.1 }
   );
   footerObserver.observe(footerEl);
-
-  document.querySelectorAll(".photo-carousel").forEach((carousel) => {
-    const track = carousel.querySelector(".photo-grid");
-    const prevBtn = carousel.querySelector(".photo-nav-prev");
-    const nextBtn = carousel.querySelector(".photo-nav-next");
-    const getStep = () => {
-      const items = track.querySelectorAll("img");
-      return items.length > 1
-        ? items[1].offsetLeft - items[0].offsetLeft
-        : track.clientWidth;
-    };
-    prevBtn.addEventListener("click", () => {
-      track.scrollBy({ left: -getStep(), behavior: "smooth" });
-    });
-    nextBtn.addEventListener("click", () => {
-      track.scrollBy({ left: getStep(), behavior: "smooth" });
-    });
-  });
 </script>
 
 </body>
