@@ -303,11 +303,17 @@
     const track = carousel.querySelector(".photo-grid");
     const prevBtn = carousel.querySelector(".photo-nav-prev");
     const nextBtn = carousel.querySelector(".photo-nav-next");
+    const getStep = () => {
+      const items = track.querySelectorAll("img");
+      return items.length > 1
+        ? items[1].offsetLeft - items[0].offsetLeft
+        : track.clientWidth;
+    };
     prevBtn.addEventListener("click", () => {
-      track.scrollBy({ left: -track.clientWidth, behavior: "smooth" });
+      track.scrollBy({ left: -getStep(), behavior: "smooth" });
     });
     nextBtn.addEventListener("click", () => {
-      track.scrollBy({ left: track.clientWidth, behavior: "smooth" });
+      track.scrollBy({ left: getStep(), behavior: "smooth" });
     });
   });
 </script>
