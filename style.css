@@ -146,8 +146,9 @@ img{max-width:100%;display:block;}
   .hero-content{margin-top:0;text-align:center;}
   .hero-logo-inline{display:block;height:48px;width:auto;margin:.8em auto 0;}
   .hero-lead{display:none;}
-  .hero-bottom .cta-group{flex-direction:row;align-items:stretch;margin-top:0;}
-  .hero-bottom .cta-group .btn{flex:1;text-align:center;padding:.7em .6em;font-size:.82rem;}
+  .hero-bottom{margin:0 auto;width:100%;display:flex;justify-content:center;}
+  .hero-bottom .cta-group{flex-direction:column;align-items:center;margin-top:0;width:100%;max-width:280px;}
+  .hero-bottom .cta-group .btn{width:100%;text-align:center;padding:.8em .6em;font-size:.9rem;}
 }
 .hero-content{position:relative;max-width:640px;}
 .hero-title-vertical{
