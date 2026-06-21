@@ -222,17 +222,25 @@ img{max-width:100%;display:block;}
 
 /* concept (full-bleed) */
 .concept-section{background:var(--cream);border-bottom:1px solid #fff;}
-.concept-grid{display:grid;grid-template-columns:1fr;}
-@media(min-width:860px){
-  .concept-grid{grid-template-columns:1fr 1fr;align-items:stretch;min-height:560px;}
+.concept-grid{
+  display:grid;grid-template-columns:1fr;
+  grid-template-areas:"text" "image" "button";
 }
-.concept-text{padding:4em 6vw;display:flex;flex-direction:column;justify-content:center;}
-.concept-image{overflow:hidden;}
+@media(min-width:860px){
+  .concept-grid{
+    grid-template-columns:1fr 1fr;grid-template-rows:1fr auto;align-items:stretch;min-height:560px;
+    grid-template-areas:"text image" "button image";
+  }
+}
+.concept-text{grid-area:text;padding:4em 6vw;display:flex;flex-direction:column;justify-content:center;}
+.concept-image{grid-area:image;overflow:hidden;}
 .concept-image img{width:100%;height:100%;object-fit:cover;display:block;}
+.concept-button{grid-area:button;padding:0 6vw 4em;}
 @media(max-width:859px){
   .concept-image{padding:0 8vw;}
   .concept-image img{aspect-ratio:16/10;border-radius:var(--radius);}
-  .concept-text{padding:2.2em 6vw;}
+  .concept-text{padding:2.2em 6vw 0;}
+  .concept-button{padding:1.5em 6vw 2.2em;}
 }
 .concept-link{display:inline-flex;align-items:center;gap:.5em;}
 
@@ -287,32 +295,6 @@ img{max-width:100%;display:block;}
 }
 .photo-grid img{width:100%;height:100%;aspect-ratio:1/1;object-fit:cover;border-radius:var(--radius);}
 
-.photo-nav{
-  display:none;
-  position:absolute;top:50%;transform:translateY(-50%);
-  width:36px;height:36px;border-radius:50%;
-  background:rgba(0,0,0,.55);color:transparent;border:none;
-  font-size:0;line-height:1;align-items:center;justify-content:center;
-  cursor:pointer;z-index:2;
-}
-.photo-nav::before {
-  content: "";
-  display: block;
-  width: 8px;
-  height: 8px;
-  border-top: 2px solid #fff;
-  border-right: 2px solid #fff;
-}
-.photo-nav-prev{left:.5em;}
-.photo-nav-prev::before {
-  transform: rotate(-135deg);
-  margin-left: 4px;
-}
-.photo-nav-next{right:.5em;}
-.photo-nav-next::before {
-  transform: rotate(45deg);
-  margin-right: 4px;
-}
 @media(max-width:600px){
   .photo-grid{
     grid-template-columns:repeat(2,1fr);
@@ -343,6 +325,13 @@ img{max-width:100%;display:block;}
 .section-overlay{position:absolute;inset:0;background:rgba(10,8,6,.6);}
 .section-dark-image .section-inner{position:relative;max-width:640px;}
 .section-dark-image .body-text{color:#e2d8c2;}
+
+/* 選ばれる理由：背景画像 */
+.reason-section{position:relative;background-size:cover;background-position:center;}
+.reason-section .section-inner{position:relative;}
+@media(max-width:759px){
+  .reason-section{background-image:url('assets/scene/why-us-bg-mobile.png') !important;}
+}
 
 /* reservation */
 .reserve-grid{
